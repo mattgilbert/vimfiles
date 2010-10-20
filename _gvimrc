@@ -1,0 +1,103 @@
+set nocompatible
+
+"hide buffers instead of closing them
+set hidden
+
+"Set the default color scheme
+colorscheme twilight
+
+"Set font to consolas
+"set guifont=Consolas:h10
+set guifont=DejaVu\ Sans\ Mono:h11
+
+"Set windows cut/copy/paste
+"source $VIMRUNTIME/mswin.vim
+
+" Set up the gui cursor to look nice
+set guicursor=n-v-c:block-Cursor-blinkon0
+set guicursor+=ve:ver35-Cursor
+set guicursor+=o:hor50-Cursor
+set guicursor+=i-ci:ver25-Cursor
+set guicursor+=r-cr:hor20-Cursor
+set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+
+"Set search options
+set incsearch
+set ignorecase smartcase
+
+"Set up 4 space tabs
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+"Line numbers
+set nu  	"Turn on line numbers
+set nuw=5 	"Gutter width
+
+set ruler
+set nowrap
+"set wrapmargin=3
+set lbr
+set autoindent
+
+"To avoid skipping lines when lines are word wrapped
+map <Up> g<Up>
+map <Down> g<Down>
+
+set cpo&vim
+
+"Search highlighting
+set hlsearch	"To temporarily disable after a search, use :nohlsearch
+
+" When the page starts to scroll, keep the cursor 8 lines from the top and 8
+" lines from the bottom
+set scrolloff=8
+
+" get rid of the silly characters in window separators
+set fillchars=""
+
+"Set up VB.NET syntax highlighting (as well as XML, ASPX, C#)
+syntax on
+filetype indent on
+autocmd BufNewFile,BufRead *.vb set ft=vbnet
+autocmd BufNewFile,BufRead *.ps1 set ft=ps1
+
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+
+set backup writebackup
+set backupdir=$HOME\_vim_backups
+set directory=$HOME\_vim_swaps
+
+"Change the no text character (~) to off-color
+
+set guioptions-=m   "Turn off menu
+set guioptions-=T   "Turn off toolbar
+set guioptions-=R   "Turn off right scrollbar
+set guioptions-=r   "Turn off right scrollbar when vertical split
+set guioptions-=L   "Turn off left scrollbar
+set guioptions-=l   "Turn off left scrollbar when vertical window split
+
+set guioptions+=a   "Make visual mode work better for sql scripts
+
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+"shortcuts for editing/reloading vimrc
+nmap <silent> <leader>ev :e ~/_gvimrc<CR>
+nmap <silent> <leader>es :so ~/_gvimrc<CR>
+
+" shortcut to nerd tree
+nmap <silent> <leader>x :NERDTree<CR>
+"change to path of file being edited
+set autochdir
+
+:cd ~

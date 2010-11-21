@@ -5,8 +5,11 @@ call pathogen#helptags()
 
 "Set the default color scheme
 colorscheme twilight
-
 "Set search options
+
+"turn off the bell
+set vb t_vb="
+
 set incsearch
 set ignorecase smartcase
 
@@ -50,6 +53,7 @@ set backup writebackup
 set backupdir=$HOME\_vim_backups
 set directory=$HOME\_vim_swaps
 
+"stop using the damn arrow keys
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 inoremap <Up> <NOP>
@@ -60,6 +64,25 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+"windowing shortcuts
+noremap <C-j> <C-w><Down>
+noremap <C-k> <C-w><Up>
+noremap <C-l> <C-w><Right>
+noremap <C-h> <C-w><Left>
+
+"window resizing shortcuts
+noremap <A-l> <C-w>>
+noremap <A-k> <C-w>+
+noremap <A-j> <C-w>-
+noremap <A-h> <C-w><
+noremap <S-A-l> 10<C-w>>
+noremap <S-A-k> 10<C-w>+
+noremap <S-A-j> 10<C-w>-
+noremap <S-A-h> 10<C-w><
+
+"map the save command, since :w is annoying
+map ZS :w<CR>
+
 "shortcuts for editing/reloading vimrc
 nmap <silent> <leader>ev :e ~/_vimrc <Bar> vsp ~/_gvimrc<CR>
 nmap <silent> <leader>es :so ~/_vimrc <Bar> :so ~/_gvimrc<CR>
@@ -68,6 +91,6 @@ nmap <silent> <leader>es :so ~/_vimrc <Bar> :so ~/_gvimrc<CR>
 
 set autochdir
 
-map <A-l> :NERDTreeToggle<CR>
-imap <A-l> :NERDTreeToggle<CR>
+map <A-f> :NERDTreeToggle<CR>
+imap <A-f> :NERDTreeToggle<CR>
 
